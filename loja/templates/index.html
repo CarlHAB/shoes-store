@@ -46,7 +46,7 @@
           <thead>
             <tr>
               <th>Modelo</th>
-              <th>Marca</th>
+
               <th class="num">Preço</th>
               <th class="num">Estoque</th>
             </tr>
@@ -57,7 +57,7 @@
               <td>
                 <a href="{% url 'detalhe' produto.id %}">{{ produto.nome }}</a>
               </td>
-              <td>{{ produto.marca }}</td>
+
               <td class="num">R$ {{ produto.preco|floatformat:2 }}</td>
               <td class="num">{{ produto.estoque }}</td>
             </tr>

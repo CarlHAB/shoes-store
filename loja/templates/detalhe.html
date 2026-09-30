@@ -1,48 +1,60 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ produto.nome }} | Solado</title>
-  <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-</head>
-<body>
-  <header class="topo">
-    <div class="container">
-      <a href="{% url 'index' %}"><img src="images/logo.svg" alt="Página inicial"></a>
-      <nav>
-        <a href="{% url 'index' %}">Catálogo</a>
-        <button class="botao contorno" id="btn-tema" onclick="alternarTema()">Tema escuro</button>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ produto.nome }} | Solado</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="container">
+        <a href="{% url 'index' %}"
+          ><img src="images/logo.svg" alt="Página inicial"
+        /></a>
+        <nav>
+          <a href="{% url 'index' %}">Catálogo</a>
+          <button class="botao contorno" id="btn-tema" onclick="alternarTema()">
+            Tema escuro
+          </button>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container detalhe">
-    <div class="foto">
-      <img src="images/sapato.svg" alt="{{ produto.nome }}">
-    </div>
-    <div>
-      <h1>{{ produto.nome }}</h1>
-      <p class="marca">Marca: {{ produto.marca }}</p>
-      <p class="preco">R$ {{ produto.preco|floatformat:2 }}</p>
-      {% if produto.estoque > 0 %}
+    <main class="container detalhe">
+      <div class="foto">
+        <img src="images/sapato.svg" alt="{{ produto.nome }}" />
+      </div>
+      <div>
+        <h1>{{ produto.nome }}</h1>
+
+        <p class="preco">R$ {{ produto.preco|floatformat:2 }}</p>
+        {% if produto.estoque > 0 %}
         <p class="estoque {% if produto.estoque <= 3 %}pouco{% endif %}">
-          {% if produto.estoque <= 3 %}Restam só {{ produto.estoque }} pares{% else %}{{ produto.estoque }} pares em estoque{% endif %}
+          {% if produto.estoque <= 3 %}Restam só {{ produto.estoque }} pares{%
+          else %}{{ produto.estoque }} pares em estoque{% endif %}
         </p>
-        <button class="botao" onclick="adicionarAoCarrinho('{{ produto.nome|escapejs }}')">Adicionar ao carrinho</button>
-      {% else %}
+        <button
+          class="botao"
+          onclick="adicionarAoCarrinho('{{ produto.nome|escapejs }}')"
+        >
+          Adicionar ao carrinho
+        </button>
+        {% else %}
         <p class="estoque pouco">Esgotado</p>
-      {% endif %}
-      <p id="aviso" hidden></p>
-      <a class="voltar" href="{% url 'index' %}">Voltar ao catálogo</a>
-    </div>
-  </main>
+        {% endif %}
+        <p id="aviso" hidden></p>
+        <a class="voltar" href="{% url 'index' %}">Voltar ao catálogo</a>
+      </div>
+    </main>
 
-  <footer class="rodape">
-    <div class="container">Solado &middot; Projeto da 1ª Avaliação de Back-End Frameworks</div>
-  </footer>
+    <footer class="rodape">
+      <div class="container">
+        Solado &middot; Projeto da 1ª Avaliação de Back-End Frameworks
+      </div>
+    </footer>
 
-  <script src="{% static 'js/script.js' %}"></script>
-</body>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
 </html>

@@ -1,8 +1,12 @@
 // Alterna entre tema claro e escuro (botão do cabeçalho) e lembra a escolha
 function alternarTema() {
   var escuro = document.body.classList.toggle("tema-escuro");
-  document.getElementById("btn-tema").textContent = escuro ? "Tema claro" : "Tema escuro";
-  try { localStorage.setItem("tema", escuro ? "escuro" : "claro"); } catch (e) {}
+  document.getElementById("btn-tema").textContent = escuro
+    ? "Tema claro"
+    : "Tema escuro";
+  try {
+    localStorage.setItem("tema", escuro ? "escuro" : "claro");
+  } catch (e) {}
 }
 
 // Aplica o tema salvo ao abrir qualquer página
