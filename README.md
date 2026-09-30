@@ -139,6 +139,4 @@ Depois acesse **http://127.0.0.1:8000/admin/**.
 
 ---
 
-## 📄 Licença
 
-Este projeto ainda não possui uma licença definida. Adicione um arquivo `LICENSE` (por exemplo, MIT) se quiser permitir o uso por terceiros.
