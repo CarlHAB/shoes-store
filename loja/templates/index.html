@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solado | Loja de sapatos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a href="{% url 'index' %}"><img src="images/logo.svg" alt="Página inicial"></a>
+      <nav>
+        <a href="#catalogo">Catálogo</a>
+        <button class="botao contorno" id="btn-tema" onclick="alternarTema()">Tema escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>Um par para cada caminho.</h1>
+        <p>Tênis, sapatos e botas com estoque real. Escolha o seu modelo e confira os detalhes.</p>
+        <a class="botao" href="#catalogo">Ver catálogo</a>
+      </div>
+      <img src="images/tenis.svg" alt="Tênis azul com solado caramelo">
+    </div>
+  </section>
+
+  <main class="container secao" id="catalogo">
+    <h2>Catálogo</h2>
+    <div class="tabela-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th class="num">Preço</th>
+            <th class="num">Estoque</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for produto in produtos %}
+          <tr>
+            <td><a href="{% url 'detalhe' produto.id %}">{{ produto.nome }}</a></td>
+            <td>{{ produto.marca }}</td>
+            <td class="num">R$ {{ produto.preco|floatformat:2 }}</td>
+            <td class="num">{{ produto.estoque }}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4" class="vazio">Nenhum produto cadastrado. Adicione pelo Admin.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">Solado &middot; Projeto da 1ª Avaliação de Back-End Frameworks</div>
+  </footer>
+
+  <script src="loja\static\images\css\js\script.js"></script>
+</body>
+</html>
