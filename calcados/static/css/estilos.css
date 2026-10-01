@@ -1,0 +1,38 @@
+.hero .row {
+  min-height: 380px;
+}
+
+.hero img {
+  max-height: 330px;
+  object-fit: contain;
+}
+
+.imagem-produto {
+  width: 112px;
+  height: 84px;
+  flex-shrink: 0;
+}
+
+.imagem-produto img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.amostra-cor {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid white;
+  background: #bf875b;
+  cursor: pointer;
+}
+
+.amostra-cor[data-cor-calcado="verde"] { background: #517456; }
+.amostra-cor[data-cor-calcado="azul"] { background: #355c87; }
+.amostra-cor[data-cor-calcado="preto"] { background: #292929; }
+
+.amostra-cor[aria-pressed="true"],
+.amostra-cor:focus-visible {
+  outline: 1px solid #252525;
+  outline-offset: 2px;
+}
