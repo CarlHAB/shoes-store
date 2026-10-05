@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <header class="border-bottom bg-white">
-      <nav class="navbar container py-3" aria-label="Navegação principal">
-        <a class="navbar-brand fw-bold" href="{% url 'index' %}">PassoCerto<span class="text-danger">.</span></a>
-        <a class="btn btn-outline-dark btn-sm" href="{% url 'index' %}#catalogo">Voltar ao catálogo</a>
+    <header class="bg-black">
+      <nav class="navbar container py-3" data-bs-theme="dark" aria-label="Navegação principal">
+        <a class="navbar-brand" href="{% url 'index' %}"><img class="brand-logo" src="{% static 'images/logo.svg' %}" width="208" height="48" alt="PassoCerto — Loja de sapatos" /></a>
+        <a class="btn btn-outline-light btn-sm" href="{% url 'index' %}#catalogo">Voltar ao catálogo</a>
       </nav>
     </header>
 
@@ -24,7 +24,7 @@
           </div>
         </div>
         <section class="col-md-6" aria-labelledby="nome-calcado">
-          <p class="small text-secondary text-uppercase fw-semibold">PassoCerto · Calçados</p>
+          <p class="text-dark small text-uppercase fw-semibold">PassoCerto · Calçados</p>
           <h1 class="h2 mb-3" id="nome-calcado">{{ calcado.nome }}</h1>
           <p class="h4 mb-4">R$ {{ calcado.preco|floatformat:2 }}</p>
           <p class="small fw-semibold mb-2">Cor: <span data-cor-selecionada>Caramelo</span></p>
@@ -44,17 +44,16 @@
       </div>
     </main>
 
-    <footer class="border-top bg-light">
+    <footer class="bg-black text-white">
       <div class="container py-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
         <div>
-          <a class="fw-bold text-dark text-decoration-none" href="{% url 'index' %}">PassoCerto<span class="text-danger">.</span></a>
-          <p class="small text-secondary mb-0">Calçados para acompanhar seus passos.</p>
+          <a href="{% url 'index' %}"><img class="brand-logo mb-2" src="{% static 'images/logo.svg' %}" width="208" height="48" alt="PassoCerto — Loja de sapatos" /></a>
         </div>
         <nav class="d-flex gap-4 small" aria-label="Links do rodapé">
-          <a class="link-secondary text-decoration-none" href="{% url 'index' %}#catalogo">Catálogo</a>
-          <a class="link-secondary text-decoration-none" href="/admin/">Admin</a>
+          <a class="link-light text-decoration-none" href="{% url 'index' %}#catalogo">Catálogo</a>
+          <a class="link-light text-decoration-none" href="/admin/">Admin</a>
         </nav>
-        <small class="text-secondary">© {% now "Y" %} PassoCerto</small>
+        <small class="text-white-50">© {% now "Y" %} PassoCerto</small>
       </div>
     </footer>
 

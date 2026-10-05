@@ -9,63 +9,57 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <header class="border-bottom bg-white">
-      <nav class="navbar navbar-expand container py-3" aria-label="Navegação principal">
-        <a class="navbar-brand fw-bold" href="{% url 'index' %}">PassoCerto</a>
+    <header class="bg-black">
+      <nav class="navbar navbar-expand container py-3" data-bs-theme="dark" aria-label="Navegação principal">
+        <a class="navbar-brand" href="{% url 'index' %}"><img class="brand-logo" src="{% static 'images/logo.svg' %}" width="208" height="48" alt="PassoCerto — Loja de sapatos" /></a>
         <div class="navbar-nav ms-auto flex-row gap-3 align-items-center">
           <a class="nav-link" href="#catalogo">Calçados</a>
-          <a class="btn btn-outline-dark btn-sm" href="/admin/">Admin</a>
+          <a class="btn btn-outline-light btn-sm" href="/admin/">Admin</a>
         </div>
       </nav>
     </header>
 
     <main class="flex-grow-1">
-      <section class="container pt-4 pt-lg-5" aria-label="Novidades PassoCerto">
-        <div id="hero" class="carousel slide hero rounded-2 overflow-hidden bg-light" data-bs-theme="dark" data-bs-ride="carousel" data-bs-interval="5500">
-          <div class="carousel-indicators">
+      <section aria-label="Novidades PassoCerto">
+        <div id="hero" class="carousel slide hero overflow-hidden bg-light" data-bs-theme="dark" data-bs-ride="carousel" data-bs-interval="6500">
+          <div class="carousel-indicators mb-1">
             <button type="button" data-bs-target="#hero" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Tênis casual"></button>
             <button type="button" data-bs-target="#hero" data-bs-slide-to="1" aria-label="Mocassim"></button>
             <button type="button" data-bs-target="#hero" data-bs-slide-to="2" aria-label="Bota"></button>
           </div>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row g-0 align-items-center px-5 py-4">
-                <div class="col-md-6">
-                  <h1 class="display-5 fw-semibold">Encontre seu<br />próximo par.</h1>
-                  <a class="btn btn-dark mt-3 position-relative z-3" href="#catalogo">Ver calçados</a>
-                </div>
-                <div class="col-md-6 text-center">
-                  <img class="img-fluid" src="{% static 'images/produtos/tenis-casual.png' %}" alt="Tênis casual caramelo" />
+            <div class="carousel-item active hero-banner-tenis">
+              <div class="container h-100 d-flex align-items-center">
+                <div class="hero-copy">
+                  <p class="small text-uppercase text-secondary fw-semibold mb-2">Seu próximo favorito</p>
+                  <h1 class="display-6 fw-semibold">Encontre seu<br />próximo par.</h1>
+                  <a class="btn btn-dark px-4 py-2 mt-2" href="#catalogo">Ver calçados</a>
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="row g-0 align-items-center px-5 py-4">
-                <div class="col-md-6">
-                  <h2 class="display-5 fw-semibold">Estilo para<br />cada caminho.</h2>
-                  <a class="btn btn-dark mt-3 position-relative z-3" href="#catalogo">Ver calçados</a>
-                </div>
-                <div class="col-md-6 text-center">
-                  <img class="img-fluid" src="{% static 'images/produtos/mocassim.png' %}" alt="Mocassim caramelo" loading="lazy" />
+            <div class="carousel-item hero-banner-mocassim">
+              <div class="container h-100 d-flex align-items-center">
+                <div class="hero-copy">
+                  <p class="small text-uppercase text-secondary fw-semibold mb-2">Um toque de elegância</p>
+                  <h2 class="display-6 fw-semibold">Estilo para<br />cada caminho.</h2>
+                  <a class="btn btn-dark px-4 py-2 mt-2" href="#catalogo">Ver calçados</a>
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="row g-0 align-items-center px-5 py-4">
-                <div class="col-md-6">
-                  <h2 class="display-5 fw-semibold">Pronto para<br />ir mais longe.</h2>
-                  <a class="btn btn-dark mt-3 position-relative z-3" href="#catalogo">Ver calçados</a>
-                </div>
-                <div class="col-md-6 text-center">
-                  <img class="img-fluid" src="{% static 'images/produtos/bota.png' %}" alt="Bota de couro caramelo" loading="lazy" />
+            <div class="carousel-item hero-banner-bota">
+              <div class="container h-100 d-flex align-items-center">
+                <div class="hero-copy">
+                  <p class="small text-uppercase text-secondary fw-semibold mb-2">Novos caminhos, novos passos</p>
+                  <h2 class="display-6 fw-semibold">Pronto para<br />ir mais longe.</h2>
+                  <a class="btn btn-dark px-4 py-2 mt-2" href="#catalogo">Ver calçados</a>
                 </div>
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev w-auto px-2" type="button" data-bs-target="#hero" data-bs-slide="prev">
+          <button class="carousel-control-prev w-auto px-2 px-lg-3" type="button" data-bs-target="#hero" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Anterior</span>
           </button>
-          <button class="carousel-control-next w-auto px-2" type="button" data-bs-target="#hero" data-bs-slide="next">
+          <button class="carousel-control-next w-auto px-2 px-lg-3" type="button" data-bs-target="#hero" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Próximo</span>
           </button>
         </div>
@@ -74,15 +68,15 @@
       <section class="container py-5" id="catalogo">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
           <div>
-            <p class="small text-secondary text-uppercase fw-semibold mb-1">Feitos para acompanhar você</p>
+            <p class="text-dark small text-uppercase fw-semibold mb-1">Feitos para acompanhar você</p>
             <h2 class="h3 mb-0">Calçados em destaque</h2>
           </div>
           <span class="small text-secondary">{{ calcados|length }} modelos</span>
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-hover align-middle">
-            <thead class="small text-uppercase text-secondary">
+        <div class="table-responsive border rounded-3 shadow-sm">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light small text-uppercase text-secondary">
               <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Preço</th>
@@ -95,11 +89,11 @@
               <tr data-item-cor>
                 <td class="py-3">
                   <div class="d-flex align-items-center gap-3">
-                    <a class="imagem-produto d-flex align-items-center bg-light rounded link-produto" href="{% url 'detalhe' calcado.id %}" aria-label="Ver {{ calcado.nome }}">
+                    <a class="imagem-produto d-flex align-items-center bg-light rounded" href="{% url 'detalhe' calcado.id %}" aria-label="Ver {{ calcado.nome }}">
                       <img class="img-fluid" src="{% static calcado.imagem %}" data-imagem-calcado alt="{{ calcado.nome }} na cor caramelo" loading="lazy" />
                     </a>
                     <div>
-                      <a class="link-produto fw-semibold text-dark text-decoration-none" href="{% url 'detalhe' calcado.id %}">{{ calcado.nome }}</a>
+                      <a class="fw-semibold text-dark text-decoration-none" href="{% url 'detalhe' calcado.id %}">{{ calcado.nome }}</a>
                       <div class="d-flex gap-2 mt-2 mb-1" role="group" aria-label="Cor de {{ calcado.nome }}">
                         <button class="amostra-cor rounded-circle" type="button" data-cor-calcado="caramelo" aria-label="Caramelo" aria-pressed="true" title="Caramelo"></button>
                         <button class="amostra-cor rounded-circle" type="button" data-cor-calcado="verde" aria-label="Verde" aria-pressed="false" title="Verde"></button>
@@ -123,17 +117,17 @@
       </section>
     </main>
 
-    <footer class="border-top bg-light">
+    <footer class="bg-black text-white">
       <div class="container py-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
         <div>
-          <a class="fw-bold text-dark text-decoration-none" href="{% url 'index' %}">PassoCerto</a>
-          <p class="small text-secondary mb-0">Calçados para acompanhar seus passos.</p>
+          <a href="{% url 'index' %}"><img class="brand-logo mb-2" src="{% static 'images/logo.svg' %}" width="208" height="48" alt="PassoCerto — Loja de sapatos" /></a>
+          <p class="small text-white-50 mb-0">Calçados para acompanhar seus passos.</p>
         </div>
         <nav class="d-flex gap-4 small" aria-label="Links do rodapé">
-          <a class="link-secondary text-decoration-none" href="{% url 'index' %}#catalogo">Catálogo</a>
-          <a class="link-secondary text-decoration-none" href="/admin/">Admin</a>
+          <a class="link-light text-decoration-none" href="{% url 'index' %}#catalogo">Catálogo</a>
+          <a class="link-light text-decoration-none" href="/admin/">Admin</a>
         </nav>
-        <small class="text-secondary">© {% now "Y" %} PassoCerto</small>
+        <small class="text-white-50">© {% now "Y" %} PassoCerto</small>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
