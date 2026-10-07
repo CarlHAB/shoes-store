@@ -2,50 +2,60 @@
 
 Projeto Django de catálogo de calçados. O app principal é `calcados`.
 
-## Estrutura
+## Participantes
 
-```text
-shoes-store/
-├── calcados/
-│   ├── migrations/
-│   ├── templates/
-│   │   ├── index.html
-│   │   └── detalhe.html
-│   ├── static/
-│   │   ├── css/estilos.css
-│   │   ├── images/produtos/
-│   │   └── js/script.js
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── admin.py
-├── config/             # Configuração do projeto Django
-├── db.sqlite3
-└── manage.py
-```
+| Participante | Matrícula |
+| --- | --- |
+| Carlos Henrique | 01797646 |
+| Gabriel Oliveira | 01803593 |
+| Marcelo Justino | 01819017 |
+| Pedro Canto | 01803171 |
 
-O model `Calcado` tem os campos `nome`, `preco`, `estoque` e `numeracao`. Há oito registros de exemplo cadastrados pelo Django Admin no banco local.
+## Funcionalidades
 
-## Executar
+- Model `Calcado` com os campos `nome`, `preco`, `estoque` e `numeracao`.
+- Listagem dos calçados em tabela e página de detalhe por item.
+- Cadastro e administração dos registros pelo Django Admin.
+- Arquivos estáticos de CSS, JavaScript e imagens usados nos templates.
+
+## Como iniciar o projeto
+
+No PowerShell, abra a pasta onde o repositório foi clonado e execute:
 
 ```powershell
+cd C:\caminho\para\shoes-store
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install Django
 python manage.py migrate
 python manage.py runserver
 ```
 
-Abra `http://127.0.0.1:8000/`. O Admin fica em `http://127.0.0.1:8000/admin/`. Para criar uma conta de acesso, use `python manage.py createsuperuser`.
+Depois, acesse:
 
-## Conferir os arquivos estáticos com DEBUG=False
+- Aplicação: `http://127.0.0.1:8000/`
+- Administração: `http://127.0.0.1:8000/admin/`
+
+Para criar um usuário administrador, pare o servidor com `Ctrl+C` e execute:
 
 ```powershell
-python manage.py collectstatic --noinput --clear
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+## Teste com `DEBUG=False`
+
+Para conferir os arquivos estáticos em ambiente local com `DEBUG=False`, execute:
+
+```powershell
+python manage.py collectstatic --noinput
 $env:DJANGO_DEBUG = 'False'
 python manage.py runserver --insecure
 ```
 
-O parâmetro `--insecure` serve apenas para essa conferência local. `staticfiles/` é a saída gerada pelo `collectstatic`; ela está ignorada pelo Git e pode ser recriada. Os arquivos originais ficam em `calcados/static/`.
+O parâmetro `--insecure` deve ser usado somente neste teste local. Para voltar ao modo de desenvolvimento, encerre o servidor e execute:
 
-## Autores
-
-Carlos Henrique, Justino, Pedro Canto e Gabriel Oliveira.
+```powershell
+Remove-Item Env:DJANGO_DEBUG
+python manage.py runserver
+```
